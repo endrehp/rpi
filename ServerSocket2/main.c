@@ -20,7 +20,7 @@ int main(){
 
     // check for error with the connection
     if (connection_status == -1) {
-        printf("There was an error making a connection to the remote socket\n\n")
+        printf("There was an error making a connection to the remote socket\n\n");
     }
 
     // receive data from the server
