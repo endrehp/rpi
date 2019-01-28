@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1548272708 source:/home/pi/Desktop/C programs/clientSocket/main.c
+	<stdio.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<unistd.h>
+	<arpa/inet.h>
+

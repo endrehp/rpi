@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<sys/types.h>
-#include<sys/socket.h>
-#include<netinet/in.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <arpa/inet.h>
 
 int main(){
 
@@ -10,11 +12,15 @@ int main(){
     int network_socket;
     network_socket = socket(AF_INET, SOCK_STREAM, 0);
 
+// server address
+char address[32] = "0.0.0.0";
+
     // specify an address for the socket
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
     server_address.sin_port = htons(9002);
-    server_address.sin_addr.s_addr = INADDR_ANY; // connecting to local machine 0.0.0.0
+    //server_address.sin_addr.s_addr = INADDR_ANY; // connecting to local machine 0.0.0.0
+	inet_aton(address, &server_address.sin_addr);
 
     int connection_status = connect(network_socket, (struct sockaddr *) &server_address, sizeof(server_address));
 
@@ -31,6 +37,6 @@ int main(){
     printf("The server sent the data: %s\n", server_response);
 
     // close the socket
-    close(sock);
+    close(network_socket);
     return 0;
 }

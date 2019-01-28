@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1548508515 source:/home/pi/Desktop/C programs/testFilter/main.c
+	<stdio.h>
+	<stdlib.h>
+
